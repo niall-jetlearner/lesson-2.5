@@ -6,7 +6,6 @@ screen = pygame.display.set_mode((WIDTH,HEIGHT))
 screen.fill((255,255,255))
 blue = (0,0,255)
 red = (255,0,0)
-pygame.display.update()
 
 class Circle:
     def __init__(self, color, pos, radius, width):
@@ -25,6 +24,14 @@ bcircle.draw()
 position = (100,250)
 radius  = 50
 width = 5
-pygame.draw.circle(screen, red, radius, position, width)
+pygame.draw.circle(screen, red, position, radius, width)
 
 pygame.display.update()
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.quit()
